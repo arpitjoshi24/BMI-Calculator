@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-black ">
+    <section class="mt-12 border-2 border-black p-6 ml-72 mr-96 d-inline-block right-0 bg-white  ">
+        <h1 class="text-5xl ml-60 mt-12 "> BMI Calculator</h1>
+        <div class="flex ml-56  mt-12">
+            <label  class="mr-4" for="age">Age = </label>
+            <input required id="age" type="text" class="border-2 ml-4 px-2 py-1 rounded-lg border-black " placeholder ='enter your age'>
+            <p class="ml-4"> age 2-120</p>
+        </div>
+        <div class="flex mx-56 my-4 ">
+            <p>Gender= </p>
+            <input class="ml-4 mr-1" type="radio" id="male"   name="gender">
+            <label for="male">Male</label>
+            <input class="ml-4 mr-1" type="radio"  id="female" name="gender">
+            <label for="female">Female</label>
+        </div>
+        <div class="flex mx-56 my-4">
+            <label class="mr-4" for="weight">Weight =</label>
+            <input required  id="weight" type="text" class="border-2 px-2 py-1 rounded-lg border-black" placeholder="enter your weight">
+            <p class="ml-2"></p>KG</p>
+        </div>
+        <div class="flex mx-56 my-4">
+            <label class="mr-4" for="height">Height =</label>
+            <input required  id="height" type="text" class="border-2 px-2 py-1 rounded-lg border-black" placeholder="enter your height">
+            <p class="ml-2">  M <sup>2</sup></p>
+        </div>
+        <div class="flex mx-80 my-4">
+            <button id="button" required  class="border-2 rounded-lg text-white bg-black hover:bg-black hover:text-white  px-2 py-1 border-black">calculate</button>
+        </div>
+        <div class="flex mx-56 my-4">
+            <label  class="mr-4" for="weight">BMI =</label>
+            <input  id="bmi" value="bmi" type="number" class="border-2 px-2 py-1 ml-6 rounded-lg border-black" >
+            
+        </div>
+    </section>
+
+    <section class="mt-12 border-2 border-black p-6 ml-72 mr-96 d-inline-block right-0 bg-white">
+        <table class="">
+            <thead>
+              <tr>
+                <th class="px-12">Age Group</th>
+                <th class="px-24">BMI Category</th>
+                <th>BMI Range (kg/m²)</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td rowspan="4" class="px-12" >Children (2-19 years)</td>
+                <td class="px-24"  >Underweight</td>
+                <td>BMI &lt; 18.5</td>
+              </tr>
+              <tr>
+                <td class="px-24">Normal</td>
+                <td>18.5 ≤ BMI &lt; 25</td>
+              </tr>
+              <tr>
+                <td class="px-24">Overweight</td>
+                <td>25 ≤ BMI &lt; 30</td>
+              </tr>
+              <tr>
+                <td class="px-24 ">Obese</td>
+                <td>BMI ≥ 30</td>
+              </tr>
+              
+              <tr>
+                
+                <td rowspan="4" class="px-12">Adults (20+ years)</td>
+                <td class="px-24 ">Underweight</td>
+                <td>BMI &lt; 18.5</td>
+              </tr>
+              <tr>
+                <td class="px-24 ">Normal</td>
+                <td>18.5 ≤ BMI &lt; 25</td>
+              </tr>
+              <tr>
+                <td class="px-24 ">Overweight</td>
+                <td>25 ≤ BMI &lt; 30</td>
+              </tr>
+              <tr>
+                <td class="px-24 ">Obese</td>
+                <td>BMI ≥ 30</td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+    <script>
+    let inputweight = document.querySelector('#weight')
+         let inputheight= document.querySelector('#height');
+         let button = document.querySelector('#button');
+         let ans = document.querySelector('#bmi');
+         button.addEventListener('click',()=>{
+
+            let weight =parseFloat(inputweight.value);
+            let height=parseFloat(inputheight.value);
+
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        alert("Please enter valid weight and height values.");
+        return; 
+    }
+            let bmi = (weight/(height*height)).toFixed(3);
+            ans.value=bmi;
+                 })
+    </script>
+</body>
+</html>
